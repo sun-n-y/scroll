@@ -29,6 +29,12 @@ ul li a:hover {
     color: black;
 }
 
+.links-container {
+    height: 0;
+    overflow: hidden;
+    transition: all 1s ease;
+}
+
 .navbar {
     background-color: white;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -57,4 +63,8 @@ ul li a:hover {
 
 .nav-btn:hover {
     color: blue;
+}
+
+.show-links {
+    height: 232px;
 }
