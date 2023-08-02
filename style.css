@@ -100,7 +100,11 @@ ul li a:hover {
 
     .links a {
         padding: 0;
-        color: rgb(213, 224, 231);
+        color: white;
+    }
+
+    .fixed-nav .links a {
+        color: black;
     }
 }
 
@@ -129,24 +133,27 @@ ul li a:hover {
 
 .hero-title {
     text-transform: uppercase;
-    z-index: 1;
 }
 
 .text {
     max-width: 480px;
-    z-index: 1;
 }
 
 .btn-hero {
-    z-index: 1;
-    cursor: pointer;
-    background-color: transparent;
-    border: white 2px solid;
+    color: white;
     padding: .5rem 1rem;
-    font-size: 1.5rem;
+    text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    background-color: transparent;
     transition: all .5s ease;
+    outline: 3px solid white;
+}
+
+.btn-hero:hover {
+    background-color: white;
+    color: black;
 }
 
 
@@ -192,15 +199,14 @@ h4 {
     position: fixed;
     bottom: 3rem;
     right: 3rem;
-    background: var(--clr-secondary);
+    background: greenyellow;
     width: 2rem;
     height: 2rem;
     display: grid;
     place-items: center;
-    border-radius: var(--radius);
-    color: var(--clr-white);
+    border-radius: .5rem;
+    color: black;
     animation: bounce 2s ease-in-out infinite;
-
     visibility: hidden;
     z-index: -100;
 }
