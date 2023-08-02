@@ -37,7 +37,7 @@ ul li a:hover {
 
 .navbar {
     background-color: white;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    z-index: 122;
 }
 
 .nav-center {
@@ -75,9 +75,8 @@ ul li a:hover {
     }
 
     .navbar {
-        background-color: transparent;
         box-shadow: none;
-        position: fixed;
+        background-color: transparent;
         width: 100%;
     }
 
@@ -102,12 +101,15 @@ ul li a:hover {
     }
 }
 
+.header {
+    min-height: 100vh;
+    background: url(./ocean.jpg) center/cover no-repeat;
+}
+
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: grid;
     place-items: center;
-    text-align: center;
-    background: url(./ocean.jpg) center/cover no-repeat;
 }
 
 .hero-content::before {
@@ -128,6 +130,7 @@ ul li a:hover {
     color: white;
     position: relative;
     padding: 1rem;
+    text-align: center;
 }
 
 .hero-title {
@@ -185,4 +188,9 @@ footer {
 
 h4 {
     letter-spacing: 3px;
+}
+
+.fixed-nav {
+    position: fixed;
+    background-color: white;
 }
