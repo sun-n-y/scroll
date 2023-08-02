@@ -8,6 +8,15 @@ const date = document.querySelector('#date');
 
 date.textContent = new Date().getFullYear();
 
+navBtn.addEventListener('click', () => {
+  const containerHeight = linksContainer.getBoundingClientRect().height;
+  if (containerHeight === 0) {
+    linksContainer.style.height = `${linksHeight}px`;
+  } else {
+    linksContainer.style.height = 0;
+  }
+});
+
 window.addEventListener('scroll', () => {
   if (window.scrollY > 65) {
     navbar.classList.add('fixed-nav');
@@ -19,29 +28,4 @@ window.addEventListener('scroll', () => {
   } else {
     topLink.classList.remove('show-link');
   }
-});
-
-navBtn.addEventListener('click', () => {
-  const containerHeight = linksContainer.getBoundingClientRect().height;
-  if (containerHeight === 0) {
-    linksContainer.style.height = `${linksHeight}px`;
-  } else {
-    linksContainer.style.height = 0;
-  }
-});
-
-links.addEventListener('click', (e) => {
-  e.preventDefault();
-  const linkName = e.target.getAttribute('href').slice(1);
-  const element = document.getElementById(linkName);
-  const navbarHeight = navbar.getBoundingClientRect().height;
-  let position = element.offsetTop - navbarHeight;
-  if (!navbar.classList.contains('fixed-nav')) {
-    position = position - navbarHeight;
-  }
-  if (linksHeight > 100) {
-    position = position + linksHeight;
-    linksContainer.style.height = 0;
-  }
-  window.scrollTo(0, position);
 });
