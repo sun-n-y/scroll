@@ -4,6 +4,7 @@ const links = document.querySelector('.links');
 const linksContainer = document.querySelector('.links-container');
 const topLink = document.querySelector('.top-link');
 const date = document.querySelector('#date');
+const scrollLinks = document.querySelectorAll('.scroll-link');
 
 date.textContent = new Date().getFullYear();
 
@@ -28,4 +29,26 @@ window.addEventListener('scroll', () => {
   } else {
     topLink.classList.remove('show-link');
   }
+});
+
+scrollLinks.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const id = e.currentTarget.getAttribute('href').slice(1);
+    const element = document.getElementById(id);
+    const navbarHeight = navbar.getBoundingClientRect().height;
+    const linksHeight = linksContainer.getBoundingClientRect().height;
+    let position = element.offsetTop - navbarHeight;
+
+    if (!navbar.classList.contains('fixed-nav')) {
+      position = position - navbarHeight;
+    }
+
+    if (linksHeight > 40) {
+      position = position + linksHeight;
+      linksContainer.style.height = 0;
+    }
+
+    window.scrollTo(0, position);
+  });
 });
